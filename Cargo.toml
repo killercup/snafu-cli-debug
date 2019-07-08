@@ -6,6 +6,7 @@ edition = "2018"
 license = "MIT OR Apache-2.0"
 repository = "https://github.com/killercup/snafu-cli-debug"
 readme = "README.md"
+description = "Derive a debug implementation on snafu errors that prints pretty CLI output"
 
 [lib]
 proc-macro = true
