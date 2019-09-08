@@ -17,4 +17,4 @@ quote = "0.6.12"
 proc-macro2 = "0.4.30"
 
 [dev-dependencies]
-snafu = "0.4.1"
+snafu = "0.5"
