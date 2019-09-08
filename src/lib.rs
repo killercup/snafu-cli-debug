@@ -20,7 +20,8 @@ pub fn derive_parser(input: TokenStream) -> TokenStream {
                     e = source;
                 }
 
-                if ::std::env::var("RUSTC_BACKTRACE").is_ok() {
+                if ::std::env::var("RUSTC_BACKTRACE").is_ok()
+                    || ::std::env::var("RUST_BACKTRACE").is_ok() {
                     if let Some(backtrace) = ::snafu::ErrorCompat::backtrace(&self) {
                         ::std::writeln!(f, "{}", backtrace)?;
                     }
