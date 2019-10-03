@@ -21,13 +21,13 @@ See example.
 ```console
 $ cargo run --example simple -q -- foo
 Error: Can't read file `foo`
-        cause: No such file or directory (os error 2)
+Info: caused by No such file or directory (os error 2)
 ```
 
 ```console
 $ cargo run --example simple -q -- foo
 Error: Can't read file `foo`
-        cause: No such file or directory (os error 2)
+Info: caused by No such file or directory (os error 2)
 ```
 
 ## License

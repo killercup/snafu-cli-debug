@@ -12,18 +12,18 @@ pub fn derive_parser(input: TokenStream) -> TokenStream {
     let impl_block = quote::quote! {
         impl ::std::fmt::Debug for #name {
             fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-                ::std::writeln!(f, "{}", self)?;
+                ::std::write!(f, "{}", self)?;
 
                 let mut e: &dyn ::std::error::Error = self;
                 while let Some(source) = e.source() {
-                    ::std::writeln!(f, "\tcause: {}", source)?;
+                    ::std::write!(f, "\nInfo: caused by {}", source)?;
                     e = source;
                 }
 
                 if ::std::env::var("RUSTC_BACKTRACE").is_ok()
                     || ::std::env::var("RUST_BACKTRACE").is_ok() {
                     if let Some(backtrace) = ::snafu::ErrorCompat::backtrace(&self) {
-                        ::std::writeln!(f, "{}", backtrace)?;
+                        ::std::write!(f, "\n{}", backtrace)?;
                     }
                 }
 
